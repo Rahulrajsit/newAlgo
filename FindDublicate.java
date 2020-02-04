@@ -30,7 +30,7 @@ public class FindDublicate {
 	}
 
 	public static int FindDuplicate2(int[] in) {
-		int i, j;
+		int i;
 		Arrays.parallelSort(in);
 		for (i = 0; i < in.length; i++) {
 			if (in[i] == in[i + 1])
@@ -41,7 +41,7 @@ public class FindDublicate {
 
 	public static int FindDuplicate3(int[] in) {
 		int[] aux = new int[in.length];
-		int i, j;
+		int i;
 		for (i = 0; i < in.length; i++) {
 			if (aux[in[i]] != 0)
 				return in[i];
@@ -65,7 +65,7 @@ public class FindDublicate {
 		int n = Integer.parseInt(args[0]);
 		int[] in = new int[n];
 		TestCase2(in);
-		//System.out.println(Arrays.toString(in));
+		// System.out.println(Arrays.toString(in));
 		long start = System.currentTimeMillis();
 		System.out.println(FindDuplicate4(in));
 		long end = System.currentTimeMillis();
