@@ -8,7 +8,7 @@
  *      FindDuplicate4 TC:- O(n) SC:- O(1)
  *      
 ***************************************************/
-package raj;
+package algo;
 
 import java.util.Arrays;
 
