@@ -1,4 +1,10 @@
-package raj;
+/*******************************************
+ *      Count zero follow by Non zero Number
+ *      
+ *      CountZero1 TC:- O(n) SC:- O(1)
+ *      CountZero2 TC:- O(log n) SC:- O(1)
+*/
+package algo;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -35,7 +41,7 @@ public class CountZero {
 		}
 		if (in[r] == 0)
 			return r + 1;
-		else if(in[l]==0)
+		else if (in[l] == 0)
 			return l + 1;
 		else
 			return 0;
@@ -45,11 +51,16 @@ public class CountZero {
 		// TODO Auto-generated method stub
 		int n = Integer.parseInt(args[0]);
 		int[] in = new int[n];
+		
 		TestCase1(in);
+		
 		System.out.println(Arrays.toString(in));
 		long start = System.currentTimeMillis();
+		
 		System.out.println(CountZero2(in));
+		
 		long end = System.currentTimeMillis();
+		
 		System.out.println("Time taken:" + (end - start) / 1000.0 + " secs");
 
 	}
