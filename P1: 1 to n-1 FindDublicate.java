@@ -1,3 +1,13 @@
+/**************************************************
+ * 
+ *      Find Duplicate number range from 1 to N-1
+ *      
+ *      FindDuplicate1 TC:- O(n^2) SC:- O(1)
+ *      FindDuplicate2 TC:- O(n log n) SC:- O(1)
+ *      FindDuplicate3 TC:- O(n) SC:- O(n)
+ *      FindDuplicate4 TC:- O(n) SC:- O(1)
+ *      
+***************************************************/
 package raj;
 
 import java.util.Arrays;
@@ -65,7 +75,7 @@ public class FindDublicate {
 		int n = Integer.parseInt(args[0]);
 		int[] in = new int[n];
 		TestCase2(in);
-		// System.out.println(Arrays.toString(in));
+		//System.out.println(Arrays.toString(in));
 		long start = System.currentTimeMillis();
 		System.out.println(FindDuplicate4(in));
 		long end = System.currentTimeMillis();
