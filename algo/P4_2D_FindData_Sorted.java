@@ -1,3 +1,11 @@
+/*************************************************************
+        Find number in sorted 2D matrix and 
+        I/P : 1 2 3 5 6
+              10 11 12 14
+              23 25 27 28
+            given : 12
+        O/P :  True
+**************************************************************/
 package algo;
 
 import java.util.Arrays;
@@ -34,6 +42,34 @@ public class P4_2D_FindData_Sorted {
 		return false;
 	}
 
+	private static int findCandidateRow(int[][] in, int x) {
+		int left = 0, right = in.length - 1;
+		while (left < right) {
+			int mid = (left + right) / 2;
+			int temp = in[mid][in.length - 1];
+			if (temp == x)
+				return mid;
+			if (temp < x)
+				left = mid + 1;
+			else
+				right = mid;
+		}
+		if (in[left][in.length - 1] >= x)
+			return left;
+
+		return Integer.MAX_VALUE;
+	}
+
+	public static boolean Search3(int[][] in, int x) {
+		int r = findCandidateRow(in, x);
+		System.out.println(r);
+		if (r == Integer.MAX_VALUE)
+			return false;
+		if (Arrays.binarySearch(in[r], x) >= 0)
+			return true;
+		return false;
+	}
+
 	public static boolean Search4(int[][] in, int x) {
 		int left = 0, right = in.length * in.length - 1;
 		while (left <= right) {
@@ -62,7 +98,7 @@ public class P4_2D_FindData_Sorted {
 
 		long start = System.currentTimeMillis();
 
-		System.out.println(Search4(in, x));
+		System.out.println(Search3(in, x));
 
 		long end = System.currentTimeMillis();
 		System.out.println("Time taken:" + (end - start) / 1000.0 + " secs");
