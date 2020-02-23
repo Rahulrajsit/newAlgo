@@ -12,21 +12,48 @@ public class P3_Distinct_Anagram_Class {
 		Random r = new Random();
 		String[] str = new String[x];
 		for (int i = 0; i < x; i++)
-			str[i] = "str" + r.nextInt(5);
+			str[i] = "str" + (char) (r.nextInt(26) + 'a');
 		return str;
 	}
 
-	public static int AnagramClass(String[] in) {
-		int incount = 1;
-		for (String s : in) {
-			s.toCharArray();
-			System.out.println(s.toCharArray());
+	//TC: O(n) SC:O(n) we check string s1,s2 is anagram or not
+	public static boolean checkAnagram(String s1, String s2) {
+		if (s1.length() != s2.length())
+			return false;
+
+		int[] count = new int[26];
+		for (int i = 0; i < s1.length(); i++)
+			++count[s1.charAt(i) - 'a'];
+
+		for (int i = 0; i < s2.length(); i++) {
+			if (count[s2.charAt(i) - 'a'] == 0)
+				return false;
+			--count[s2.charAt(i) - 'a'];
 		}
-		for (int i = 0; i < in.length - 1; i++) {
-			if (!in[i].equals(in[i + 1]))
-				incount++;
+		return true;
+	}
+
+	//TC:O(n^2 * m) SC:O(n)
+	public static void AnagramClass1(String[] in) {
+		int count = 0;
+		boolean[] used = new boolean[in.length];
+		for (int i = 0; i < in.length; i++) {            // Take one string and compare to i+1 to n string  TC:O(n)
+			if (used[i])
+				continue;
+			// System.out.println(in[i]);
+			for (int j = i + 1; j < in.length; j++) {    //TC:O(n)*O(n) ->O(n^2)
+				if (checkAnagram(in[i], in[j])) {        //TC:O(m) SC:O(n) check each string with i'th string anagram or not TC:O(n^2 * m)
+					System.out.println(in[j]);
+					used[j] = true;
+				}
+			}
+			System.out.println();
 		}
-		return incount;
+		for (boolean k : used) {     //TC:O(n) here we will check total number of false value that is my distinct value
+			if (!k)
+				count++;
+		}
+		System.out.println("Total Distinct Anagram is:" + count);
 	}
 
 	public static void AnagramClass3(String[] in) {
@@ -55,7 +82,7 @@ public class P3_Distinct_Anagram_Class {
 		System.out.println(Arrays.toString(in));
 
 		long start = System.currentTimeMillis();
-		AnagramClass3(in);
+		AnagramClass1(in);
 		long end = System.currentTimeMillis();
 		System.out.println("Time taken:" + (end - start) / 1000.0 + " secs");
 
