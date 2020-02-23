@@ -1,3 +1,12 @@
+/*********************************************************
+   Find Distinct Anagram 
+   I/P :-    aabb
+             bbaa
+	     ccaa
+	     abcd
+	     dcba
+   O/P :- 3
+************************************************************/
 package HashMap_List;
 
 import java.util.List;
