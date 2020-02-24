@@ -24,9 +24,10 @@ public class P3_CeilValue {
 	}
 
 	public static int Ceil1(int[] in, int x) {
-		for (int i = 0; i < in.length; i++)
+		for (int i = 0; i < in.length; i++) {
 			if (in[i] >= x)
 				return in[i];
+		}
 		return Integer.MAX_VALUE;
 	}
 
@@ -51,14 +52,14 @@ public class P3_CeilValue {
 		int n = Integer.parseInt(args[0]);
 		int[] in = new int[n];
 		int x = TestCase1(in);
-		
-		//System.out.println(Arrays.toString(in));
-		//System.out.println(x);
-		
+
+		System.out.println(Arrays.toString(in));
+		System.out.println(x);
+
 		long start = System.currentTimeMillis();
-		
-		System.out.println(Ceil2(in, x));
-		
+
+		System.out.println(Ceil1(in, x));
+
 		long end = System.currentTimeMillis();
 		System.out.println("Time taken:" + (end - start) / 1000.0 + " secs");
 
