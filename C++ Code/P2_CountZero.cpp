@@ -77,5 +77,7 @@ int main(int args, char** argv)
 		<< elapsed_seconds.count() << " seconds" << endl;
 
 
+	delete[] in; // deallocation of in array
+	
 	return 0;
 }
