@@ -78,5 +78,7 @@ int main(int args, char** argv)
 
 	obj.Display(in, n, findCeil);
 
+	delete[] in; // deallocation of in array
+	
 	return 0;
 }
