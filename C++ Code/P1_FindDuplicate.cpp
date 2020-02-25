@@ -93,6 +93,6 @@ int main(int argc, char** argv)
 	cout << "Time taken by function: "
 		<< duration.count() << " microseconds" << endl;
 
-	delete[] in;
+	delete[] in; // deallocation of in array
 	return 0;
 }
