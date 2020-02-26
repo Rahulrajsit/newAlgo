@@ -4,7 +4,7 @@
 #include <iostream>
 #include <chrono>
 #include <algorithm>
-
+#include <unordered_set>
 using namespace std;
 using namespace std::chrono;
 
@@ -78,6 +78,21 @@ public:
 		}
 		return false;
 	}
+
+	bool findSum3(int* in, int n, int pairSum) {
+		unordered_set<int> hset;
+
+		for (int i = 0; i < n; i++) {
+			int temp = pairSum - in[i];
+
+			if (hset.find(temp) == hset.end())
+				hset.insert(in[i]);
+			else
+				return true;
+		}
+		return false;
+	}
+
 	// TC : O(n) SC : O(1)
 	void Display(int* in, int n) {
 		for (int i = 0; i < n; i++) {
@@ -98,7 +113,7 @@ int main(int args, char** argv)
 	cout << "Pair Sum: " << pairSum << endl;
 
 	auto start = high_resolution_clock::now();
-	cout << "Search value is:" << boolalpha << obj.findSum2(in, n, pairSum) << endl;
+	cout << "Search value is:" << boolalpha << obj.findSum3(in, n, pairSum) << endl;
 	auto stop = high_resolution_clock::now();
 
 	auto elapsed_seconds = stop - start;
