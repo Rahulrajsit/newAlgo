@@ -80,7 +80,7 @@ public:
 	}
 
 	bool findSum3(int* in, int n, int pairSum) {
-		unordered_set<int> hset;
+		unordered_set<int> hset;           // unordered and take O(1) if use set then it take O(log n) use BST
 
 		for (int i = 0; i < n; i++) {
 			int temp = pairSum - in[i];
