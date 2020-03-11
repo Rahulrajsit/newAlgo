@@ -52,7 +52,7 @@ int main(int args, char** argv)
 	int data1 = 1 + rand() % n;
 	root = insert(root, data1);
 
-	while (++i <= 10)
+	while (++i <= n)
 	{
 		int data = 1 + rand() % n;
 		insert(root, data);
