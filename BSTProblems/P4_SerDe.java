@@ -32,7 +32,7 @@ public class P4_SerDe {
 		BSTUtils.displayTree(root);
 		String res = serDe1(root);
 		System.out.println(res);
-		DeSer1(res);
+		root = DeSer1(res);
 		BSTUtils.displayTree(root);
 	}
 
